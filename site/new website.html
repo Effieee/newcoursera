@@ -1,11 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Hi there!</title>
+	<title>Клуб друзей</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: sans-serif;
+
+		} 
+		section {
+			position: relative;
+			width: 100%;
+			padding: 100px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background: whitesmoke;
+		}
+		header {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			padding: 20px 50px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background: darkseagreen;
+		}
+		header .logo {
+			max-width: 100px;
+		}
+		header .name {
+			max-width: 400px;
+		}
+		header ul {
+			position: relative;
+			display: flex;
+		}
+		header ul li {
+			list-style: none;
+		}
+		header ul li a {
+			display: inline-block;
+			color: seagreen;
+			font-weight: 500;
+			margin-left: 40px;
+			text-decoration: none;
+		}
+		.content {
+			position: relative;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.content .textBox {
+			position: relative;
+			max-width: 600px;
+		}
+		.content .textBox h2 {
+			color: black;
+			font-size: 3em;
+			line-height: 1.4em;
+			font-weight: 500;
+		}
+		.content .textBox h2 span {
+			color: seagreen;
+			font-size: 1.2em;
+			font-weight: 700;
+		}
+		.content .textBox p {
+			color: black;
+		}
+		.content .textBox a {
+			display: inline-block;
+			margin-top: 20px;
+			padding: 8px 20px;
+			background: seagreen;
+			color: black;
+			border-radius: 40px;
+			font-weight: 500;
+			letter-spacing: 1px;
+			text-decoration: none;
+		}
+		.content .imgBox {
+			width: 600px;
+			display: flex;
+			justify-content: flex-end;
+			padding-right: 10px;
+			margin-top: 30px;
+		}
+		.content .imgBox img {
+			max-width: 400px;
+		}
+	</style>
 </head>
 <body>
-<h1>Hellloooo</h1>
+	<section>
+		<header>
+		<a href="#"><img src="https://mhatschool.ru/local/templates/mhat/img/icon/logo-icon.svg" class="logo"><img src="https://mhatschool.ru/local/templates/mhat/img/icon/logo.svg" class="name"></a>
+		<ul>
+			<li><a href="#">Привилегии</a></li>
+			<li><a href="#">Участие</a></li>
+			<li><a href="#">Индивидуальные словия</a></li>
+			<li><a href="#">Результаты</a></li>
+		</ul>
+	    </header>
+	    <div class="content">
+	    	<div class="textBox">
+	    		<h2>Клуб друзей<br>Школы-студии <span>МХАТ</span></h2>
+	    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	    		<a href="#">Узнать больше</a>
+	    	</div>
+	    	<div class="imgBox">
+	    		<img src="https://mhatschool.ru/upload/iblock/a23/Son_shkola-06.jpg" class="play">
+	    	</div>
+	    </div>
+
+	</section>
+
+
+
+	
+</script>
 </body>
 </html>

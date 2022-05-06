@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Assignment Solution for Module 2</title>
+	<style>
+		body{
+			font-family: sans-serif;
+		}
+		h1 {
+			text-align: center;
+		}
+		#div1 {
+			border: 5px solid black;
+			float: left;
+			padding: 20px;
+			background-color: lightgray;
+			margin: 5px;
+			position: relative;
+		}
+		#div2 {
+			border: 5px solid black;
+			float: left;
+            padding: 20px;
+            margin: 5px;
+            background-color: lightgray;
+            position: relative;
+		}
+		#div3 {
+			border: 5px solid black;
+			float: left;
+            padding: 20px;
+            background-color: lightgray;
+            margin: 5px;
+            position: relative;
+		}
+		#name1{
+			background-color: lightpink;
+			border: 3px solid black;
+			margin: 0;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+		#name2 {
+			background-color: indianred;
+			border: 3px solid black;
+			margin: 0;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+		#name3{
+			background-color: beige;
+			border: 3px solid black;
+			margin: 0;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+
+
+	    .row {
+	    	justify-content: space-between;
+	    	width: 100%;
+	    }
+
+		@media (min-width: 922px) {
+			.col-lg-4 {
+				width: 30%;
+			}
+       } 
+        @media (min-width: 768px) and (max-width: 921px) {
+            .col-md-6 {
+            	width: 43%;
+            }
+            .col-md-12 {
+            	width: 100%;
+            }
+
+		}
+		@media (max-width: 767px) {
+            .col-sm-12 {
+            	width: 100%;
+            }
+		}
+	</style>
+</head>
+<body>
+<h1>My task</h1>
+<div class= "row">
+ <div id="div1" class="col-lg-4 col-md-6 col-sm-12">
+	<h3 id="name1">Section 1</h3>
+	<p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ </div>
+ <div id="div2" class="col-lg-4 col-md-6 col-sm-12">
+	<h3 id="name2">Section 2</h3>
+	<p id="p2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ </div>
+ <div id="div3" class="col-lg-4 col-md-12 col-sm-12">
+	<h3 id="name3">Section 3</h3>
+	<p id="p3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ </div>
+</div>
+</body>
+</html>
