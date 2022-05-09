@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Coffee</title>
+	<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap" rel="stylesheet">
+	<style type="text/css">
+		*, *::before, *::after {
+			box-sizing: border-box;
+		}
+		body {
+			margin: 0;
+			font-family: 'Titillium Web', sans-serif;
+			line-height: 1.6;
+		}
+		img {
+			max-width: 100%;
+			display: block;
+		}
+		h1, h2, h3, p {
+			margin: 0;
+		}
+		section {
+			padding: 7em 0;
+		}
+		.container {
+			width: 85%;
+			max-width: 1000px;
+			margin: 0 auto;
+		}
+		.row {
+			display: flex;
+			gap: 1em;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.row>* {
+			flex-basis: 30%;
+			min-width: 15em;
+		}
+
+		.spacing>*+* {
+			margin-top: 2rem;
+		}
+		.btn {
+			display: inline-block;
+			text-decoration: none;
+			padding: .5em 1.25em;
+			background: var(--clr-accent, sandybrown);
+			color: var(--clr-text, white);
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: 1.12em;
+			border-radius: .3em;
+			transition: transform 250ms ease-in-out, opacity 175ms linear;
+		}
+		.btn:hover,
+		.btn:focus {
+			transform: scale(1.1);
+			opacity: .8;
+		}
+		.name {
+			font-size: 4rem;
+			line-height: 1;
+			text-transform: uppercase;
+		}
+		.section-title {
+			text-align: center;
+			font-size: 4rem;
+			font-weight: 1000;
+			line-height: 1;
+			color: saddlebrown;
+			margin-bottom: 5rem;
+		}
+		.coffee {
+			color: white;
+			text-align: center;
+			padding: 15em 0;
+			background: saddlebrown;
+		}
+		@supports (background-blend-mode: multiply) {
+			.coffee {
+				background: url(header.png), radial-gradient(saddlebrown 30%, beige);
+				background-size: 100%;
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+				background-position: center center;
+			}
+		}
+		.roast {
+			background: beige;
+		}
+		.roast_type {
+			display: block;
+			position: relative;
+			transform: scale(0.85);
+			transition: transform 250ms ease-in-out;
+			text-decoration: none;
+			color: black;
+			text-align: center;
+			line-height: 1.3;
+		}
+		.roast_details {
+			opacity: 0;
+			transition: opacity 250ms linear;
+		}
+		span {
+			display: block;
+			font-weight: 700;
+			font-size: 2.5rem;
+		}
+	
+		.roast_type:hover, .roast_type:focus {
+			transform: scale(1);
+		}
+		.roast_type:hover .roast_details,
+		.roast_type:focus .roast_details {
+			opacity: 1;
+			text-shadow: 0 0 .2em rgb(255, 255, 255);
+		}
+		.roast_type::after {
+			content: '';
+			position: absolute;
+			padding: 90% 90% 0 0;
+			background: burlywood;
+			border-radius: 20%;
+			top: 25%;
+			left: 20%;
+			z-index: -1;
+
+		}
+		.types {
+			background: #beige;
+		}
+		.type {
+			background: radial-gradient(var(--clr-inner, coral), var(--clr-outer, cornflowerblue));
+			padding: 3em;
+			border-radius: 1em;
+			margin-bottom: 5em;
+			text-align: center;
+		}
+		.coffee_title {
+			font-size: 4rem;
+			color: white;
+			line-height: 1;
+			text-shadow: 0 0 .3em rgb(0, 0, 0);
+			text-transform: uppercase;
+		}
+
+		.coffee_img {
+			margin: -6em 0 0 ;
+		    max-width: 300px;
+		}
+
+		@media (min-width: 45em) {
+			.type {
+				text-align: left;
+			}
+			.coffee_title {
+				margin: 0;
+			}
+			.coffee_img {
+				float: right;
+				width: 50%;
+				shape-outside: circle(50%);
+				shape-margin: 1em;
+				margin: 0 -5em 0 0;
+
+			}
+			.cappuccino .coffee_img {
+				float: left;
+				shape-outside: url(coffee2.png);
+				shape-margin: 2em;
+				margin: 0 0 0 -5em;
+				shape-margin: 5em;
+			}
+			.coldbrew .coffee_img {
+				max-width: 30%;
+			}
+		}
+
+		.espresso {
+			--clr-inner: #ff9673;
+			--clr-outer: #d46f6a;
+			--clr-accent: #00ba8c;
+		}
+		.cappuccino {
+			--clr-inner: #c67df0;
+			--clr-outer: #c72c7c;
+			--clr-accent: #00acdb;
+		}
+		.coldbrew {
+			--clr-inner: #ffe854;
+			--clr-outer: #c46e04;
+			--clr-accent: #58e85f;
+		}
+
+	</style>
+</head>
+<body>
+	<header class="coffee">
+		<div class="container spacing">
+			<h1 class="name">The diversity of Coffee</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. </p>
+			<a href="#" class="btn">Get to know more</a>
+		</div>
+	</header>
+
+	<main>
+		<section class="roast">
+			<div class="container">
+				<h2 class="section-title">Coffee roast types</h2>
+				<div class="row">
+					<a href="#" class="roast_type">
+						<img src="lightroast.png" alt="light roast" class="roast_img">
+						<p class="roast_details"><span class="price">$10</span>Light roast</p>
+					</a>
+					<a href="#" class="roast_type">
+						<img src="mediumroast.png" alt="medium roast" class="roast_img">
+						<p class="roast_details"><span class="price">$10</span>Medium roast</p>
+					</a>
+					<a href="#" class="roast_type">
+						<img src="darkroast.png" alt="dark roast" class="roast_img">
+						<p class="roast_details"><span class="price">$10</span>Dark roast</p>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="types">
+			<div class="container">
+				<h2 class="section-title">Different coffee drinks</h2>
+
+				<article class="type espresso spacing">
+					<img src="coffee1.png" class="coffee_img imgespresso"></img>
+					<h3 class="coffee_title">
+						Espresso
+					</h3>
+					<p class="coffee-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. </p>
+					<a class="btn">Try now</a>
+				</article>
+
+			   <article class="type cappuccino spacing">
+			   	    <img src="coffee2.png" class="coffee_img"></img>
+					<h3 class="coffee_title">
+						Cappuccino
+					</h3>
+					<p class="coffee-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. </p>
+					<a class="btn">Try now</a>
+				</article>
+
+			    <article class="type coldbrew spacing">
+			    	<img src="coffee3.png" class="coffee_img"></img>
+					<h3 class="coffee_title">
+						Cold Brew
+					</h3>
+					<p class="coffee-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. </p>
+            <a class="btn">Try now</a>
+				</article>
+		</section>
+	</main>
+
+
+
+</body>
+</html>
