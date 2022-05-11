@@ -36,6 +36,7 @@
 		}
 		header .name {
 			max-width: 400px;
+			margin-right: 100px;
 		}
 		header ul {
 			position: relative;
@@ -97,12 +98,36 @@
 		.content .imgBox img {
 			max-width: 400px;
 		}
+
+		.sci {
+			position: absolute;
+			top: 50%;
+			right: 30px;
+			transform: translateY(-50%);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		.sci li {
+			list-style: none;
+		}
+		.sci li a {
+			display: inline-block;
+			margin: 5px 0;
+			transform: scale(0.6);
+		}
+		.shs {
+			width: 100%;
+			position: relative;
+			display: block;
+		}
 	</style>
 </head>
 <body>
 	<section>
 		<header>
-		<a href="#"><img src="https://mhatschool.ru/local/templates/mhat/img/icon/logo-icon.svg" class="logo"><img src="https://mhatschool.ru/local/templates/mhat/img/icon/logo.svg" class="name"></a>
+		<a href="#"><img src="https://mhatschool.ru/local/templates/mhat/img/icon/logo-icon.svg" class="logo"><span><img src="https://mhatschool.ru/local/templates/mhat/img/icon/logo.svg" class="name"></a>
 		<ul>
 			<li><a href="#">Привилегии</a></li>
 			<li><a href="#">Участие</a></li>
@@ -125,12 +150,26 @@
 	    		<img src="https://mhatschool.ru/upload/iblock/a23/Son_shkola-06.jpg" class="play">
 	    	</div>
 	    </div>
+	   <!-- comment>
+	    <ul class="sci">
+	    	<li><a href="#"><img src="fb.png"></a></li>
+	    	<li><a href="#"><img src="insta.png"></a></li>
+	    	<li><a href="#"><img src="tlg.png"></a></li>
+	    </ul>
+	</!-->
+	<div class="shs">
+		<h3>Школа-студия МХАТ - это</h3>
+		<ul>
+			<li>Легендарная история <p>Почти 80 лет Школа-студия МХАТ держит высокую планку в обучении театральному мастерству и является прямой ассоциацией к слову "театр" в России</p></li>
+            <li>Люди <p>Преподаватели Школы-студии - действующие руководители театров, признанные профессионалы. Под их руководством наши студенты уже на первых курсах делают проекты, чем помогают становлению современного театра.</p></li>
+            <li>Друзья<p>Абитуриенты, студенты, зрители, приглашенные лекторы, педагоги, меценаты - все наши друзья придают нам уверенности и совместно мы развиваем театральное искусство.</p></li>
+		</ul>
+	</div>
 
 	</section>
 
 
-
 	
-</script>
+
 </body>
 </html>
