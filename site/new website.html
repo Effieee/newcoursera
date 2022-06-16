@@ -1,16 +1,451 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Клуб друзей</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Titillium+Web:wght@200&display=swap" rel="stylesheet">
 	<style type="text/css">
-		* {
-			margin: 0;
-			padding: 0;
+
+/* GENERAL SETTINGS*/
+		*, *::before, *::after {
 			box-sizing: border-box;
-			font-family: sans-serif;
 
 		} 
+		body {
+			margin: 0;
+			font-family: 'Open Sans', sans-serif;
+			line-height: 1.6;
+			text-align: center;
+		}
+		img {
+			max-width: 100%;
+			display: block;
+		}
+		section {
+			padding: 3em 0;
+		}
+		.container {
+			width: 90%;
+			max-width: 1000px;
+			margin: 0 auto;
+		}
+		.row {
+			display: flex;
+			gap: 1em;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.row>* {
+			flex-basis: 25%;
+			min-width: 15em;
+		}
+		.spacing>*+* {
+			margin-top: 3rem;
+		}
+
+		
+		.section-name {
+			position: relative; 
+			display: inline-block; 
+			text-transform: uppercase;
+			font-size: 2em;
+			font-weight: 800;
+			margin-bottom: 2em;
+			color: #4a1919;
+		}
+	 /*   .section-name::before,
+		.section-name::after {
+			content: '';
+			height: 100%;
+			display: block;
+			position: absolute;
+			top: 0;
+		}
+		.section-name::before {
+			background: #db9d6e;
+			width: 100vw;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: -2;
+		}
+		.section-name::after {
+			height: 101%;
+			background: white;
+			left: -.1em;
+			right: -.1em;
+			z-index: -1;
+		} */
+
+		h3 {
+			font-size: 1.5em;
+			font-weight: 1000;
+
+		}
+		ul {
+			list-style: none;
+			text-align: left;
+			line-height: 1.5;
+		}
+		li {
+			margin-top: 1em;
+		}
+
+/*ШАПКА*/
+        header {
+			text-align: center;
+			padding: 8em 0;
+			color: white;
+			background: #70403a;
+			background-color: #7d514c;
+			background-image: url(kdheader.png);
+			background-blend-mode: multiply;
+			background-repeat: no-repeat;
+			background-position: top center;
+			background-attachment: fixed;
+
+		}
+		/*@supports (background-blend-mode: multiply) {
+			header {
+				background: url(kdheader.png), radial-gradient(#ff1a00, #c21fba);
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+				background-position: top center;
+			}
+		} */
+		
+		
+		.btn {
+			display: inline-block;
+			padding: .5em 1.2em;
+			margin: auto .5em auto auto;
+			background: #7d514c;
+			color: white;
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 1.2em;
+			border-radius: .4em;
+			transition: transform 250ms ease-in-out;
+			opacity: 250ms linear;
+
+		}
+		.btn:hover, .btn:focus {
+			transform: scale(1.1);
+			opacity: .8;
+		}
+		.primary-title {
+			font-size: 4em;
+			display: flex;
+			justify-content: center;
+			text-shadow: 0 0 .1em #c7a5a5;
+
+		}
+		.primary-text {
+			font-size: 1.25em;
+		}
+
+
+/*ШКОЛА-СТУДИЯ МХАТ - ЭТО*/		
+		
+		.definitions {
+			position: relative;
+		}
+		.definitions::before, .definitions::after {
+			content: '';
+			position: absolute;
+			top: 20%;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-image: url('kdsh.jpg');
+			background-repeat: no-repeat;
+			background-size: 160%;
+			background-position: top right 20%;
+			opacity: .2;
+			z-index: -1;
+		}
+
+
+		.definition-name {
+			color: #420707;
+			font-size: 2em;
+		}
+		.definition-text {
+			text-align: left;
+		}
+		.definition-right {
+			position: relative;
+			text-align: right;
+		}
+		.definition-left {
+			position: relative;
+			text-align: left;
+		}
+		.definition-right::before {
+			content: '';
+			height: .15em;
+			width: 100vw;
+			background: #7d514c;
+			display: block;
+			position: absolute;
+			right:20%;
+			top: 50%;
+		}
+
+		.definition-left::after {
+			content: '';
+			height: .15em;
+			width: 100vw;
+			background: #7d514c;
+			display: block;
+			position: absolute;
+			left: 29%;
+			top: 50%;
+			/*transform: translateX(-50%);*/
+		}
+		
+/*УРОВНИ ПРИВЕЛЕГИЙ*/
+		.benefit_img {
+			display: block;
+			position: relative;
+			transform: scale(.9);
+			transition: transform 250ms ease-out;
+			transform: opacity 200ms linear;
+
+		}
+    	.price {
+			opacity: 0%;
+		    position: absolute;
+			top: 3.5%;
+			left: 35%; 
+			transform: opacity 250ms linear;
+			transform: translate(-50%, -50%);
+		} 
+		.benefit_list {
+			position: relative;
+			left: -8%;
+		}
+		.benefit_img:hover, .benefit_img:focus {
+			transform: scale(1.1);
+			opacity: 40%;
+
+		}
+		.benefit_img:hover .price, 
+		.benefit_img:focus .price {
+			opacity: 100%;
+			background: red;
+			transform: scale(5);
+		/*	text-shadow: 0 0 .2em rgb(255, 255, 255); */
+		}
+		
+
+
+/*КЛУБ ДРУЗЕЙ*/
+		.goal {
+			padding: .5em;
+			color: white;
+			border-radius: 1.5em;
+		}
+		.goals-grid {
+			display: grid;
+			gap: 2em;
+			grid-template-columns: repeat(3, 1fr);
+
+		}
+		.grid-space-2 {
+			grid-column: span 2;
+		}
+		.goal2 {
+			grid-column-start: 3;
+		}
+		.goal2-2 {
+			grid-row-start: 2;
+		}
+		.mission {
+			background: #b8876a;
+		}
+		.agenda {
+			background: #b39292;
+		}
+		.task {
+			background: #9e89ab;
+		}
+
+
+
+	/*	.benefit_type {
+			display: block;
+			position: relative;
+			transform: scale(0.85);
+			transition: transform 250ms ease-in-out;
+			text-decoration: none;
+			color: black;
+			text-align: center;
+			line-height: 1.3;
+		}
+		.benefit_details {
+			opacity: 0;
+			transition: opacity 250ms linear;
+		}
+		span {
+			display: block;
+			font-weight: 700;
+			font-size: 2.5rem;
+		}
+	
+		.benefit_type:hover, .benefit_type:focus {
+			transform: scale(1);
+		}
+		.benefit_type:hover .benefit_details,
+		.benefit_type:focus .benefit_details {
+			opacity: 1;
+			text-shadow: 0 0 .2em rgb(255, 255, 255);
+		}
+		.benefit_type::after {
+			content: '';
+			position: absolute;
+			padding: 90% 90% 0 0;
+			background: burlywood;
+			border-radius: 20%;
+			top: 25%;
+			left: 20%;
+			z-index: -1;
+
+		} */
+
+
+/*УЧАСТИЕ ПО ПРИГЛАШЕНИЮ*/
+
+		.card {
+			position: relative;
+			margin: 1em;
+		}
+		.card::before, .card::after {
+			content: '';
+			position: absolute;
+			top: 1.25em;
+			bottom: 1.25em;
+			left: 1.25em;
+			right: 1.25em;
+			opacity: 1;
+			transition: transform ease-out 250ms;
+		}
+		.card::before {
+			border-top: 1px solid black;
+			border-bottom: 1px solid black;
+			transform: scale(0,1);
+		}
+		.card::after {
+			border-left: 1px solid black;
+			border-right: 1px solid black;
+			transform: scale(1,0);
+			  }
+		
+		.card:hover::before {
+			transform: scale(1.05, 1);
+			}  
+        .card:hover::after {
+        	transform: scale(1, 1.05);
+        }
+        .card_img {
+          max-width: 100%;
+          display: block;
+          transition: opacity ease-out 250ms;
+
+        }
+
+        .card:hover .card_img {
+            opacity: .4;
+          }
+        
+
+        .card_text {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: black;
+          opacity: 0;
+          transition: opacity ease-out 250ms;
+        }
+
+        .card:hover .card_text {
+          opacity: 1;
+        }
+
+        .card_title {
+          font-size: 2rem;
+          color: black;
+          margin-bottom: 0;
+        }
+
+/*РЕЗУЛЬТАТЫ КЛУБА ДРУЗЕЙ*/
+        .result {
+        	background: radial-gradient(var(--clr-inner, coral), var(--clr-outer, cornflowerblue));
+			padding: 3em;
+			border-radius: 1em;
+			margin-bottom: 5em;
+			text-align: center;
+        }
+        .result_img {
+        	margin: -2em 0 0;
+		    max-width: 300px;
+		    border-radius: .5em;
+		    float: right;
+		    display: block;
+        }
+        .result_title {
+        	display: inline-block;
+        }
+        .circle {
+        	--clr-inner: #b8724f;
+        	--clr-outer: #7d514c;
+        }
+        .stable {
+        	--clr-inner: #c4615c;
+        	--clr-outer: #7d514c;
+        }
+        .opportunity {
+        	--clr-inner: #975fb8;
+        	--clr-outer: #7d514c;
+        }
+
+
+		@media (max-width: 570px) {
+			.primary-title {
+				font-size: 3em;
+			}
+			header {
+				padding: 2em 0;
+			}
+			.btn {
+				padding: .3em .3em;
+				margin: 10px auto;
+			}
+			.goals-grid {
+				display: block;
+			}
+			.goal {
+				margin: 10px;
+			}
+			.goal-text {
+				margin-bottom: 50px;
+			}
+		}
+		@media (min-width: 1300px) {
+			header {
+				background-size: 100%;
+	    	}
+    	}
+			/*
+			background: var(--clr-accent, sandybrown);
+			color: var(--clr-text, white);
+			transition: transform 250ms ease-in-out, opacity 175ms linear;
+
+		}
+		/*
 		section {
 			position: relative;
 			width: 100%;
@@ -36,11 +471,7 @@
 		}
 		header .name {
 			max-width: 400px;
-<<<<<<< HEAD
 			margin-right: 100px;
-=======
-			margin-left: 10px;
->>>>>>> 54e7d701a11aba16c6c58623be57c95647ea0e1e
 		}
 		header ul {
 			position: relative;
@@ -55,125 +486,266 @@
 			font-weight: 500;
 			margin-left: 40px;
 			text-decoration: none;
-		}
-		.content {
-			position: relative;
-			width: 100%;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
-		.content .textBox {
-			position: relative;
-			max-width: 600px;
-		}
-		.content .textBox h2 {
-			color: black;
-			font-size: 3em;
-			line-height: 1.4em;
-			font-weight: 500;
-		}
-		.content .textBox h2 span {
-			color: seagreen;
-			font-size: 1.2em;
-			font-weight: 700;
-		}
-		.content .textBox p {
-			color: black;
-		}
-		.content .textBox a {
-			display: inline-block;
-			margin-top: 20px;
-			padding: 8px 20px;
-			background: seagreen;
-			color: black;
-			border-radius: 40px;
-			font-weight: 500;
-			letter-spacing: 1px;
-			text-decoration: none;
-		}
-		.content .imgBox {
-			width: 600px;
-			display: flex;
-			justify-content: flex-end;
-			padding-right: 10px;
-			margin-top: 30px;
-		}
-		.content .imgBox img {
-			max-width: 400px;
-		}
-
-		.sci {
-			position: absolute;
-			top: 50%;
-			right: 30px;
-			transform: translateY(-50%);
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-		}
-		.sci li {
-			list-style: none;
-		}
-		.sci li a {
-			display: inline-block;
-			margin: 5px 0;
-			transform: scale(0.6);
-		}
-		.shs {
-			width: 100%;
-			position: relative;
-			display: block;
-		}
+		} */
+		
 	</style>
 </head>
 <body>
-	<section>
 		<header>
-		<a href="#"><img src="https://mhatschool.ru/local/templates/mhat/img/icon/logo-icon.svg" class="logo"><span><img src="https://mhatschool.ru/local/templates/mhat/img/icon/logo.svg" class="name"></a>
-		<ul>
-			<li><a href="#">Привилегии</a></li>
-			<li><a href="#">Участие</a></li>
-			<li><a href="#">Индивидуальные словия</a></li>
-			<li><a href="#">Результаты</a></li>
-		</ul>
+			<div class="container spacing">
+				<h1 class="primary-title">Клуб друзей Школы-студии МХАТ ...</h1>
+				<p class="primary-text">... это сообщество, объединяющее всех, кто когда-либо соприкасался с жизнью Школы-студии или только планирует стать частью лучшей театральной школы России</p>
+				<div>
+					<div class="butns">
+					<a href="#benefits" class="btn">Привилегии</a>
+					<a href="#participants" class="btn">Участие</a>
+					<a href="#results" class="btn">Результаты</a>
+				</div>
+				</div>
+			</div>
 	    </header>
-	    <div class="content">
-	    	<div class="textBox">
-	    		<h2>Клуб друзей<br>Школы-студии <span>МХАТ</span></h2>
-	    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	    		<a href="#">Узнать больше</a>
-	    	</div>
-	    	<div class="imgBox">
-	    		<img src="https://mhatschool.ru/upload/iblock/a23/Son_shkola-06.jpg" class="play">
-	    	</div>
-	    </div>
-	   <!-- comment>
-	    <ul class="sci">
-	    	<li><a href="#"><img src="fb.png"></a></li>
-	    	<li><a href="#"><img src="insta.png"></a></li>
-	    	<li><a href="#"><img src="tlg.png"></a></li>
-	    </ul>
-	</!-->
-	<div class="shs">
-		<h3>Школа-студия МХАТ - это</h3>
-		<ul>
-			<li>Легендарная история <p>Почти 80 лет Школа-студия МХАТ держит высокую планку в обучении театральному мастерству и является прямой ассоциацией к слову "театр" в России</p></li>
-            <li>Люди <p>Преподаватели Школы-студии - действующие руководители театров, признанные профессионалы. Под их руководством наши студенты уже на первых курсах делают проекты, чем помогают становлению современного театра.</p></li>
-            <li>Друзья<p>Абитуриенты, студенты, зрители, приглашенные лекторы, педагоги, меценаты - все наши друзья придают нам уверенности и совместно мы развиваем театральное искусство.</p></li>
-		</ul>
-	</div>
 
-	</section>
+	    <main>
+	    	<section class="definitions">
+	    		<div class="container">
+	    			<h2 class="section-name center">Школа-студия МХАТ - это</h2>
+	    			<article class="definition">
+	    				<h3 class="definition-name definition-left">История</h3>
+	    				<p class="definition-text">Почти 80 лет Школа-студия МХАТ держит высокую планку в обучении театральному мастерству и является прямой ассоциацией к слову "театр" в России.  </p>
+	    			</article>
+	    			<article class="definition">
+	    				<h3 class="definition-name definition-right">Люди</h3>
+	    				<p class="definition-text">Преподаватели Школы-студии - действующие руководители театров, признанные профессионалы. Под их руководством наши студенты уже на первых курсах делают проекты, чем помогают становлению современного театра. </p>
+	    			</article>
+	    			<article class="definition">
+	    				<h3 class="definition-name definition-left">Друзья</h3>
+	    				<p class="definition-text">Абитуриенты, студенты, зрители, приглашенные лекторы, педагоги, меценаты -  все наши друзья придают нам уверенности и совместно мы развиваем театральное искусство.</p>
+	    			</article>
+	    		</div>
+	    	</section>
+
+	    	<section class="goals">
+	    		<div class="container">
+	    			<h2 class="section-name center">Клуб друзей</h2>
+	    			<div class="goals-grid">
+	    			<article class="goal mission">
+	    				<h3 class="goal-name">Миссия</h3>
+	    			</article>
+	    			<article class="goal grid-space-2 mission">
+	    				<p class="goal-text">Развитие культурного ландашафта России через поддержку развития Школы-студии МХАТ</p>
+	    			</article>
+	    			<article class="goal goal2 agenda">
+	    		    	<h3 class="goal-name">Цель</h3>
+	    		    </article>
+	    		    <article class="goal grid-space-2 goal2-2 agenda">
+	    		    	<p class="goal-text">Создание и поддержание многогранных корпоративных связей института с выпускниками и меценатами</p>
+	    		    </article>
+	    		    <article class="goal task">
+	    				<h3 class="goal-name">Задача</h3>
+	    			</article>
+	    			<article class="goal grid-space-2 task">
+	    				<p class="goal-text">Создать возможность для каждого неравнодушного человека помочь Школе-студии МХАТ через разные уровни поддержки</p>
+	    			</article>
+	    		</div>
+	    		</div>
+	    	</section>
+
+	    	<section class="benefits" id="benefits">
+	    		<div class="container">
+	    			<h2 class="section-name center">Привилегии участника Клуба друзей</h2>
+	    				<div class="benefit">
+	    				<h3 class="benefit-name">Учебный театр</h3>
+	    				<ul class="benefit-list">
+	    					<li>Приглашение на 2 лица на 1 спектакль в театральный сезон Учебного театра по выбору</li>
+	    					<li>Приглашение на премьерные показы</li>
+	    					<li>Экскурсии по Учебному театру и репетиционным залам Школы-студии МХАТ</li>
+	    					<li>Ужин в фойе Учебного театра</li>
+	    					<li>Приглашение на мероприятия, дискуссии с режиссерами и актерами</li>
+	    					<li>Возможность посещать лекции и мастер-классы</li>
+	    				</ul>
+	    				</div>
+	    				<div class="benefit">
+	    				<h3 class="benefit-name">Уникальные мероприятия</h3>
+	    				<ul class="benefit-list">
+	    					<li>Аукцион Школы-студии МХАТ</li>
+	    					<li>Участие в читке пьес</li>
+	    					<li>Юбилеи и дни рождения артистов - бенефисы и вечера</li>
+	    					<li>Презентации книг, издательство Школы-студии МХАТ</li>
+	    					<li>Выставки студентов на разных площадках</li>
+	    					<li>Премьеры студенческих спектаклей на разных московских площадках (Музей Москвы, Театр “Практика”, Театр “Современник”, Театр имени Пушкина)</li>
+	    					<li>Возможность посетить предпремьерный показ спектакля или выставки студентов факультета Сценографии и театральной технологии</li>
+	    				</ul>
+	    				</div>
+	    				<div class="benefit">
+	    				<h3 class="benefit-name">Сувенирная продукция</h3>
+	    				<ul class="benefit-list">
+	    					<li>Джемперы/свитшоты/футболки/поло</li>
+	    					<li>Брелки</li>
+	    					<li>Блокноты</li>
+	    					<li>Ручки / карандаши</li>
+	    					<li>Шопперы</li>
+	    					<li>Издания о Школе-студии МХАТ, о театре, театральных деятелях</li>
+	    					<li>Кепки</li>
+	    				</ul>
+	    				</div>
+	    				<div class="benefit">
+	    				<h3 class="benefit-name">Мероприятия в рамках учебного процесса факультетов Школы-студии МХАТ</h3>
+	    				<ul class="benefit-list">
+	    					<li>Приглашение на выставки факультета художников-постановщиков</li>
+	    					<li>Приглашения на показы по актерскому мастерству, вокалу, сценическому бою, танцу</li>
+	    					<li>Приглашение на защиты проектов (художники, актеры)</li>
+	    					<li>Приглашение на мероприятия Лектория</li>
+	    				</ul>
+	    				</div>
+	    				<div class="benefit">
+	    				<h3 class="benefit-name">Льготы от партнеров</h3>
+	    				<ul class="benefit-list">
+	    					<li>Скидка на кофе, второй бокал шампанского от кафе "Академия на Камергерском"</li>
+	    					<li>Десерт/напиток в ресторане "Чехов”</li>
+	    				</ul>
+	    			    </div>
+	    			<h2 class="section-name center">Уровни привелегий Клуба друзей</h2>
+	    			<div class="row">
+	    				<div class="benefit_type">
+						 <img src="kdpartbronze.png" alt="Бронзовый" class="benefit_img">
+						 <p class="benefit_details">
+						 	<span class="price">5.000₽</span>
+						 	<ul class="benefit_list">
+						 		<li>3 события из раздела привилегий «Учебного театра»</li>
+						 		<li>Все мероприятия раздела «Мероприятий в рамках учебного процесса факультетов Школы-студии МХАТ» </li>
+						 		<li>2 события на выбор из раздела «Уникальные мероприятия»</li>
+						 		<li>«Льгота от партнёров»</li>
+						 		<li> «Сувенирная продукция» - брелок, блокнот, ручка</li>
+						 	</ul>
+						 </p>
+					    </div>
+					    <div class="benefit_type">
+						 <img src="kdpartsilver.png" alt="Серебряный" class="benefit_img">
+						 <p class="benefit_details">
+						 	<span class="price">10.000₽</span>
+						 	<ul class="benefit_list">
+						 		<li>Все из предыдущего пакета,    дополнительно:</li>
+						 		<li>+ 1 событие на выбор из раздела привилегий «Учебного театра»</li>
+						 		<li>+ 1 событие на выбор из раздела «Уникальные мероприятия» </li>
+						 		<li>+ «Сувенирная продукция» - карандаш, открытка с автографом, шоппер</li>
+						 	</ul>
+						 </p>
+					    </div>
+					    <div class="benefit_type">
+						 <img src="kdpartgold.png" alt="Золотой" class="benefit_img">
+						 <p class="benefit_details">
+						 	<span class="price">35.000₽</span>
+						 	<ul class="benefit_list">
+						 		<li>Все из предыдущего пакета, дополнительно:</li>
+						 		<li>+ Приглашение на 3 лица на все мероприятия, входящий в раздел привилегий «Учебного театра» и «Мероприятий в рамках учебного процесса факультетов Школы-студии МХАТ» </li>
+						 		<li>+ 2 события на выбор из раздела «Уникальные мероприятия» </li>
+						 		<li>+ Все из раздела  «Сувенирная продукция»</li>
+						 	</ul>
+						 </p>
+					    </div>
+					    <div class="benefit_type">
+						 <img src="kdpartplatinum.png" alt="Платиновый" class="benefit_img">
+						 <p class="benefit_details">
+						 	<span class="price">50.000₽</span>
+						 	<ul class="benefit_list">
+						 		<li>Полный пакет привилегий и возможность дополнительно пригласить на мероприятия до 5 лиц</li>
+						 	</ul>
+						 </p>
+					    </div>
+	    			</div>
+	    		</div>
+	    	</section>
+
+	    	<section class="participants" id="participants">
+	    		<div class="container">
+	    			<h2 class="section-name center">Участие по приглашению</h2>
+	    			<div class="row">
+	    				<div class="card">
+	    					<img src="kdpinbronze.png" alt="Pin" class="card_img">
+	    					<div class="card_text">
+	    						<h3 class="card_title">Бронзовая чайка</h3>
+	    						<p class="card_body">от 100.000₽</p>
+	    					</div>
+	    				</div>
+	    				<div class="card">
+	    					<img src="kdpinsilver.png" alt="Pin" class="card_img">
+	    					<div class="card_text">
+	    						<h3 class="card_title">Серебряная чайка</h3>
+	    						<p class="card_body">от 500.000₽</p>
+	    					</div>
+	    				</div>
+	    				<div class="card">
+	    					<img src="kdpingold.png" alt="Pin" class="card_img">
+	    					<div class="card_text">
+	    						<h3 class="card_title">Золотая чайка</h3>
+	    						<p class="card_body">от 1.000.000₽</p>
+	    					</div>
+	    				</div>
+	    			</div>
 
 
-	
+	    			<h2 class="section-name center">Индивидуальные условия закрытого клуба друзей</h2>
+	    			<div class="conditions">
+	    				<h3 class="condition-name">Уникальные мероприятия</h3>
+	    				<ul>
+	    					<li>Участие в викторине на театральную тематику с участием медийных личностей</li>
+	    					<li>Завтрак с ректором Школы-студии МХАТ</li>
+	    					<li>Приглашение на Юбилей Школы-студии МХАТ на 2 лица</li>
+	    					<li>Приглашение на иммерсивный квест с участием актеров Школы-студии МХАТ</li>
+	    					<li>Выездные мероприятия и мастер-классы</li>
+	    					<li>Выступления в формате квартирника музыкальных групп - друзей Школы-студии МХАТ</li>
+	    					<li>Творческие форумы с возможностью проведения нетворк-мероприятий</li>
+	    				</ul>
+	    			</div>
+	    			<div class="conditions">
+	    				<h3 class="condition-name">Льготы от партнеров</h3>
+	    				<ul>
+	    					<li>Скидка на курорт в Сочи </li>
+	    					<li>Скидка на подготовительные курсы Школы-студии МХАТ</li>
+	    					<li>Скидка в фитнес-клуб премиум класса </li>
+	    					<li>Персонализированные банковские карты</li>
+	    				</ul>
+	    			</div>
+	    			<div class="conditions">
+	    				<h3 class="condition-name">Сувенирная продукция</h3>
+	    				<ul>
+	    					<li>Мерч в коллаборации с российскими дизайнерами</li>
+	    					<li>Запонки с символом Клуба Друзей Школы-студии МХАТ</li>
+	    				</ul>
+	    			</div>
+	    		</div>
+	    	</section>
 
+	    	<section class="results" id="results">
+	    		<div class="container">
+	    			<h2 class="section-name">Результаты клуба друзей</h2>
+
+				<article class="result circle">
+					<img src="kdcircle.png" class="result_img"></img>
+					<h3 class="result_title">
+						Круг единомышленников
+					</h3>
+					<p class="result_description">Клуб объединит меценатов, благотворителей, неравнодушных зрителей, любителей театрального искусства</p>
+				</article>
+
+			   <article class="result stable">
+			   	    <img src="kdstable.png" class="result_img"></img>
+					<h3 class="result_title">
+						Стабильность
+					</h3>
+					<p class="result_description">Благодаря клубу друзей мы получим постоянный источник дополнительного финансирования и поддержки</p>
+				</article>
+
+			    <article class="result opportunity">
+			    	<img src="kdopportunity.png" class="result_img"></img>
+					<h3 class="result_title">
+						Новые возможности 
+					</h3>
+					<p class="result_description">Друзья - это наша поддержка. Она может быть разной. Финансы, связи, новые партнерские проекты</p>
+				</article>
+	    		</div>
+	    	</section>
+	    </main>
+	    
 </body>
 </html>
